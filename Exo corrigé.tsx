@@ -190,11 +190,11 @@ function introduce(person: Person): string {
   return ` Bonjour ${person.name}! vous avez ${person.age} ans et vous êtes etudiant : ${person.isStudent}`;
 }
 
-const name = "Guillaume";
+const name1 = "Guillaume";
 const age = 37;
 const isStudent = true;
 
-const person: Person = { name, age, isStudent };
+const person: Person = { name1, age, isStudent };
 console.log(introduce(person));
 
 // Write a function `formatValue` that takes a string or number.
@@ -264,3 +264,25 @@ function print2(product1: [string, number]) {
 
   console.log(print(product));
   console.log(print(product1));
+
+
+  // Écrire une fonction printEvenNumbers(max: number): void qui affiche tous les nombres pairs de 0 jusqu'à max.
+
+function printEvenNumbers(max: number): void {
+  for (let i = 0; i <= max; i++) {
+    if (i % 2 === 0) {
+      console.log(i);
+    }
+  }
+}
+
+
+// function printEvenNumbers(max: number): void {
+// }
+
+// Écrire une fonction average(numbers: number[]): number qui retourne la moyenne des nombres dans un tableau.
+
+function average(numbers: number[]): number {
+  const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+  return sum / numbers.length;
+}
