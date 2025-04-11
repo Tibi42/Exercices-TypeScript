@@ -178,7 +178,14 @@ interface Person {
 
 // Write a function `formatValue` that takes a string or number.
 // If number: return currency string. If string: return uppercase.
-function formatValue();
+function formatValue(value: string | number): string {
+  if (typeof value === "number") {
+    return value.toLocaleString("en-US", { style: "currency", currency: "USD" });
+  } else if (typeof value === "string") {
+    return value.toUpperCase();
+  }
+  return "";
+}
 
 // Write a function `greet` with a default greeting of "Hello".
 function greet(name?: string, greeting: string = "Hello") {
@@ -325,21 +332,22 @@ function capitalize1(str: string): string {
 }
 
 console.log(capitalize1("hello"));
-console.log(capitalize1"world"));
+console.log(capitalize1("world"));
 
 
 function capitalize(str: string): string {
   
+  let str2 = ""
   if (str.charCodeAt(0) >= 97 ) {
     // str.charCodeAt(0)-32
     // ELle prend le code ASCII du premier caracter de la chaine de caractere str, elle y retire 32 et la retransforme en caractere
-    str[0] = String.fromCharCode(str.charCodeAt(0)-32)
+    str2 = String.fromCharCode(str.charCodeAt(0)-32)
   }
   // 
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 1; i < str.length; i++) {
     //   Si le code ASCII du i-eme caractere de str et inferieir a 97 (est une majuscule) alors j'execute : 
     if (str.charCodeAt(i) < 97) {
-      str[i] = String.fromCharCode(str.charCodeAt(i)+32)
+      str2 += String.fromCharCode(str.charCodeAt(i)+32)
   }
 }
 
@@ -366,3 +374,23 @@ function reverseWords1(sentence: string): string {
 
 const sentence = "The quick brown fox jumps over the lazy dog";
 console.log("Test 2 Candidate:", reverseWords1(sentence));
+
+// Écrire une fonction countOccurrences(array: string[], word: string): number.
+function countOccurrences(array: string[], word: string): number {
+  let compteur = 0;
+  for (let  i = 0; i < array.length; i++) {
+    if ( array[i] ==  word ) {
+      compteur += 1 ; 
+    }
+  }
+  return compteur;
+}
+
+const nbWord = ["un","deux", "trois"];
+console.log(countOccurrences(nbWord));
+
+
+
+function convertNumber(n: int): string {
+
+}
